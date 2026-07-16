@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Join The Academy | Sol Addis Football Academy</title>
+<meta name="description" content="Register your player for Sol Addis Football Academy. Submit your application, attend a trial, and start your football journey in Addis Ababa." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style re.css" />
+<link rel="stylesheet" href="responsive re.css" />
+<link rel="stylesheet" href="pages re.css" />
+</head>
+<body>
+
+<!-- ========================================================================
+     LOADING SCREEN
+======================================================================== -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-ball">
+    <svg viewBox="0 0 100 100"><polygon points="50,20 65,32 59,50 41,50 35,32" fill="#041311" opacity=".85"/></svg>
+  </div>
+  <span class="loader-text">SOL ADDIS FC</span>
+</div>
+
+<!-- ========================================================================
+     NAVIGATION
+======================================================================== -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.5 8.5L21 9L16 13.5L17.5 20L12 16.5L6.5 20L8 13.5L3 9L9.5 8.5L12 2Z" fill="#E8FF73"/></svg>
+      </span>
+      SOL <span>ADDIS</span> FC
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="coaches.html">Coaches</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="donation.html">donation</a>
+  <a href="shop (1).html">shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="registration.html" class="btn btn-primary btn-sm">Join Now</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="programs.html">Programs</a>
+  <a href="coaches.html">Coaches</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="donation.html">donation</a>
+  <a href="shop (1).html">shop</a>
+  <a href="contact.html">Contact</a>
+  <a href="registration.html" class="btn btn-primary" style="margin-top:12px;">Join Now</a>
+</div>
+
+<main>
+
+<!-- ========================================================================
+     PAGE HEADER / HERO
+======================================================================== -->
+<section class="page-header">
+  <span class="pitch-line l1"></span>
+  <div class="container">
+    <p class="eyebrow" data-reveal>Registration Open</p>
+    <h1 data-reveal data-reveal-delay="1">Join Sol Addis<br>Football Academy</h1>
+    <p data-reveal data-reveal-delay="2">Start your football journey today.</p>
+  </div>
+</section>
+
+<!-- ========================================================================
+     STEP PROCESS
+======================================================================== -->
+<section class="process">
+  <div class="container">
+    <div class="section-head center" data-reveal style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">How It Works</p>
+      <h2>Four Steps To Kick Off</h2>
+      <p>A clear, structured path from application to first training session.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-dot">01</div>
+        <div class="timeline-card">
+          <h4>Submit Registration</h4>
+          <p>Complete the player registration form below with player and guardian details.</p>
+          <span class="tl-tag">Step 01</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal data-reveal-delay="1">
+        <div class="timeline-dot">02</div>
+        <div class="timeline-card">
+          <h4>Application Review</h4>
+          <p>Our coaching team reviews every application, typically within 3 days.</p>
+          <span class="tl-tag">Step 02</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal data-reveal-delay="2">
+        <div class="timeline-dot">03</div>
+        <div class="timeline-card">
+          <h4>Attend Trial Session</h4>
+          <p>Join a scheduled trial session so coaches can assess level and best-fit squad.</p>
+          <span class="tl-tag">Step 03</span>
+        </div>
+      </div>
+
+      <div class="timeline-item final" data-reveal data-reveal-delay="3">
+        <div class="timeline-dot">04</div>
+        <div class="timeline-card">
+          <h4>Become A Sol Addis Player</h4>
+          <p>Get your squad assignment, training kit details, and full season schedule.</p>
+          <span class="tl-tag">Step 04</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ========================================================================
+     REGISTRATION FORM
+======================================================================== -->
+<section class="registration-form">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Application</p>
+      <h2>Player Registration Form</h2>
+      <p>Fields marked with an asterisk (*) are required.</p>
+    </div>
+
+    <div class="form-panel" data-reveal>
+      <form id="registrationForm" novalidate>
+
+        <span class="form-kicker">01 — Player Information</span>
+        <h3>Player Information</h3>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Player's full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age <span class="req">*</span></label>
+            <input type="number" id="age" name="age" min="4" max="19" placeholder="e.g. 12" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth <span class="req">*</span></label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+
+          <div class="form-group full">
+            <label>Gender <span class="req">*</span></label>
+            <div class="pill-group">
+              <input type="radio" id="genderMale" name="gender" value="Male" required>
+              <label for="genderMale">Male</label>
+              <input type="radio" id="genderFemale" name="gender" value="Female">
+              <label for="genderFemale">Female</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="position">Playing Position <span class="req">*</span></label>
+            <select id="position" name="position" required>
+              <option value="" disabled selected>Select position</option>
+              <option>Goalkeeper</option>
+              <option>Defender</option>
+              <option>Midfielder</option>
+              <option>Forward</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="program">Preferred Program <span class="req">*</span></label>
+            <select id="program" name="program" required>
+              <option value="" disabled selected>Select program</option>
+              <option>Grassroots — U9 &amp; U11</option>
+              <option>Development — U13 &amp; U15</option>
+              <option>Elite Pathway — U17 &amp; Trials</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+251 9XX XXX XXX" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="player@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="parentName">Parent / Guardian Name <span class="req">*</span></label>
+            <input type="text" id="parentName" name="parentName" placeholder="Full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="parentPhone">Parent Phone <span class="req">*</span></label>
+            <input type="tel" id="parentPhone" name="parentPhone" placeholder="+251 9XX XXX XXX" required>
+          </div>
+
+          <div class="form-group full">
+            <label for="address">Home Address <span class="req">*</span></label>
+            <input type="text" id="address" name="address" placeholder="Sub-city, area, house number" required>
+          </div>
+
+          <div class="form-group full">
+            <label for="experience">Football Experience</label>
+            <textarea id="experience" name="experience" placeholder="Previous clubs, years playing, or 'no prior experience'"></textarea>
+          </div>
+        </div>
+
+        <h3>Documents</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Upload Player Photo</label>
+            <div class="file-upload">
+              <input type="file" id="playerPhoto" name="playerPhoto" accept="image/*">
+              <div class="file-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" stroke="#fff" stroke-width="1.8" fill="none"/></svg>
+              </div>
+              <div class="file-text">
+                <strong>Player photo</strong>
+                JPG or PNG, max 5MB
+                <span class="file-name"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Upload Birth Certificate</label>
+            <div class="file-upload">
+              <input type="file" id="birthCert" name="birthCert" accept="image/*,.pdf">
+              <div class="file-icon">
+                <svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v4h4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="file-text">
+                <strong>Birth certificate</strong>
+                PDF, JPG or PNG
+                <span class="file-name"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Emergency &amp; Health</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="emergencyName">Emergency Contact <span class="req">*</span></label>
+            <input type="text" id="emergencyName" name="emergencyName" placeholder="Name and phone number" required>
+          </div>
+
+          <div class="form-group">
+            <label for="medical">Medical Conditions (optional)</label>
+            <input type="text" id="medical" name="medical" placeholder="Allergies, conditions, or 'none'">
+          </div>
+
+          <div class="form-group full">
+            <label>Preferred Training Days</label>
+            <div class="pill-group">
+              <input type="checkbox" id="dayMon" name="trainingDays" value="Monday"><label for="dayMon">Mon</label>
+              <input type="checkbox" id="dayTue" name="trainingDays" value="Tuesday"><label for="dayTue">Tue</label>
+              <input type="checkbox" id="dayWed" name="trainingDays" value="Wednesday"><label for="dayWed">Wed</label>
+              <input type="checkbox" id="dayThu" name="trainingDays" value="Thursday"><label for="dayThu">Thu</label>
+              <input type="checkbox" id="dayFri" name="trainingDays" value="Friday"><label for="dayFri">Fri</label>
+              <input type="checkbox" id="daySat" name="trainingDays" value="Saturday"><label for="daySat">Sat</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="#">Terms and Conditions</a> and confirm the information provided is accurate. <span class="req">*</span></label>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary">Submit Registration</button>
+          <span class="form-note">You'll hear back within 3 working days</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     CALL TO ACTION
+======================================================================== -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box" data-reveal>
+      <h2>Questions Before You Apply?</h2>
+      <p>Our team is happy to walk you through programs, schedules and fees.</p>
+      <div class="btn-actions">
+        <a href="contact.html" class="btn btn-primary on-green">Talk To Us</a>
+        <a href="programs.html" class="btn btn-ghost">View Programs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================================================================
+     FOOTER
+======================================================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.5 8.5L21 9L16 13.5L17.5 20L12 16.5L6.5 20L8 13.5L3 9L9.5 8.5L12 2Z" fill="#E8FF73"/></svg>
+          </span>
+          SOL <span>ADDIS</span> FC
+        </a>
+        <p>Developing footballers and future leaders in Addis Ababa since 2016.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="TikTok">tt</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Academy</h5>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="donation.html">Donate</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>Bole Road, Addis Ababa, Ethiopia</li>
+          <li>+251 911 000 000</li>
+          <li>info@soladdisfc.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Sol Addis Football Academy. All rights reserved.</span>
+      <span>Designed for the next generation of Ethiopian football.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="#071A17" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- ========================================================================
+     SUCCESS MODAL
+======================================================================== -->
+<div class="modal-overlay" id="registrationSuccess">
+  <div class="modal-panel success-panel">
+    <button class="modal-close" data-modal-close aria-label="Close">✕</button>
+    <svg class="success-check" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46"></circle>
+      <path d="M30 52l14 14 26-30"></path>
+    </svg>
+    <h3>Thank You!</h3>
+    <p>Your registration has been received. Our coaching team will contact you within 3 working days.</p>
+    <span class="modal-note">Registration Confirmed</span>
+  </div>
+</div>
+
+<script src="animation re.js"></script>
+<script src="main re.js"></script>
+<script src="pages re.js"></script>
+</body>
+</html>

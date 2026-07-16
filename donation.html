@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Donate | Sol Addis Football Academy</title>
+<meta name="description" content="Support Sol Addis Football Academy. Help fund coaching, facilities, and equipment for the next generation of Ethiopian footballers." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style re.css" />
+<link rel="stylesheet" href="responsive re.css" />
+<link rel="stylesheet" href="pages re.css" />
+</head>
+<body>
+
+<!-- ========================================================================
+     LOADING SCREEN
+======================================================================== -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-ball">
+    <svg viewBox="0 0 100 100"><polygon points="50,20 65,32 59,50 41,50 35,32" fill="#041311" opacity=".85"/></svg>
+  </div>
+  <span class="loader-text">SOL ADDIS FC</span>
+</div>
+
+<!-- ========================================================================
+     NAVIGATION
+======================================================================== -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.5 8.5L21 9L16 13.5L17.5 20L12 16.5L6.5 20L8 13.5L3 9L9.5 8.5L12 2Z" fill="#E8FF73"/></svg>
+      </span>
+      SOL <span>ADDIS</span> FC
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="coaches.html">Coaches</a>
+      <a href="gallery.html">Gallery</a>
+   
+  <a href="shop (1).html">shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="registration.html" class="btn btn-primary btn-sm">Join Now</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="programs.html">Programs</a>
+  <a href="coaches.html">Coaches</a>
+  <a href="gallery.html">Gallery</a>
+ 
+  <a href="shop (1).html">shop</a>
+  <a href="contact.html">Contact</a>
+  <a href="registration.html" class="btn btn-primary" style="margin-top:12px;">Join Now</a>
+</div>
+
+<main>
+
+<!-- ========================================================================
+     PAGE HEADER / HERO
+======================================================================== -->
+<section class="page-header">
+  <span class="pitch-line l1"></span>
+  <div class="container">
+    <p class="eyebrow" data-reveal>Give Back</p>
+    <h1 data-reveal data-reveal-delay="1">Support Sol Addis<br>Football Academy</h1>
+    <p data-reveal data-reveal-delay="2">Help us develop the next generation of Ethiopian football players.</p>
+  </div>
+</section>
+
+<!-- ========================================================================
+     DONATION FORM (amount + frequency)
+======================================================================== -->
+<section class="donation-amount">
+  <div class="container">
+    <div class="section-head center" data-reveal style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">Make A Gift</p>
+      <h2>Choose Your Contribution</h2>
+      <p>Every birr goes directly into coaching, facilities and equipment.</p>
+    </div>
+
+    <div data-reveal style="display:flex;justify-content:center;margin-bottom:44px;">
+      <div class="freq-toggle">
+        <input type="radio" id="freqOnce" name="frequency" value="One Time" checked>
+        <label for="freqOnce">One Time</label>
+        <input type="radio" id="freqMonthly" name="frequency" value="Monthly">
+        <label for="freqMonthly">Monthly</label>
+        <input type="radio" id="freqYearly" name="frequency" value="Yearly">
+        <label for="freqYearly">Yearly</label>
+      </div>
+    </div>
+
+    <div class="amount-grid" data-reveal>
+      <div class="amount-card">
+        <input type="radio" id="amount100" name="donationAmount" value="100">
+        <label for="amount100"><span class="curr">ETB</span><span class="val">100</span></label>
+      </div>
+      <div class="amount-card">
+        <input type="radio" id="amount250" name="donationAmount" value="250">
+        <label for="amount250"><span class="curr">ETB</span><span class="val">250</span></label>
+      </div>
+      <div class="amount-card">
+        <input type="radio" id="amount500" name="donationAmount" value="500" checked>
+        <label for="amount500"><span class="curr">ETB</span><span class="val">500</span></label>
+      </div>
+      <div class="amount-card">
+        <input type="radio" id="amount1000" name="donationAmount" value="1000">
+        <label for="amount1000"><span class="curr">ETB</span><span class="val">1,000</span></label>
+      </div>
+      <div class="amount-card">
+        <input type="radio" id="amount2500" name="donationAmount" value="2500">
+        <label for="amount2500"><span class="curr">ETB</span><span class="val">2,500</span></label>
+      </div>
+      <div class="amount-card">
+        <input type="radio" id="amount5000" name="donationAmount" value="5000">
+        <label for="amount5000"><span class="curr">ETB</span><span class="val">5,000</span></label>
+      </div>
+      <div class="amount-card custom-card" id="customAmountCard">
+        <span class="curr">ETB · Custom</span>
+        <input type="radio" id="amountCustom" name="donationAmount" value="custom" style="position:absolute;opacity:0;">
+        <input type="number" id="customAmountInput" placeholder="0" min="1">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     PAYMENT METHODS
+======================================================================== -->
+<section class="payment-methods" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="section-head center" data-reveal style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">Payment</p>
+      <h2>Choose How To Pay</h2>
+      <p>Send your contribution using either method, then confirm below.</p>
+    </div>
+
+    <div class="payment-grid">
+      <div class="payment-card" data-reveal>
+        <div class="payment-card-head">
+          <div class="payment-icon">T</div>
+          <h4>Telebirr</h4>
+        </div>
+        <div class="qr-placeholder">QR Code<br>Placeholder</div>
+        <div class="payment-detail">
+          <span class="pd-label">Telebirr Number</span>
+          <span class="pd-value">09XXXXXXXX</span>
+        </div>
+        <button type="button" class="btn btn-primary" data-payment-method="Telebirr" data-open-modal="#donationConfirmModal">I Have Sent the Payment</button>
+      </div>
+
+      <div class="payment-card" data-reveal data-reveal-delay="1">
+        <div class="payment-card-head">
+          <div class="payment-icon">B</div>
+          <h4>Commercial Bank of Ethiopia</h4>
+        </div>
+        <div class="payment-detail">
+          <span class="pd-label">Account Name</span>
+          <span class="pd-value">Sol Addis Football Academy</span>
+        </div>
+        <div class="payment-detail">
+          <span class="pd-label">Account Number</span>
+          <span class="pd-value">XXXXXXXXXXXX</span>
+        </div>
+        <button type="button" class="btn btn-primary" data-payment-method="Commercial Bank of Ethiopia" data-open-modal="#donationConfirmModal">I Have Sent the Payment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     WHY DONATE / HOW IT HELPS
+======================================================================== -->
+<section class="why-donate">
+  <div class="container split-grid">
+    <div data-reveal>
+      <p class="eyebrow">Why Donate</p>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,2.6rem);text-transform:uppercase;">Every Contribution Builds A Future</h2>
+      <p style="color:var(--white-70);margin-top:18px;">Many talented young players in Addis Ababa can't afford kit, transport, or trial fees. Your donation removes that barrier and keeps the pathway open for anyone with the drive to play.</p>
+    </div>
+
+    <div data-reveal data-reveal-delay="1">
+      <p class="eyebrow">How Donations Help</p>
+      <div class="check-feature-list">
+        <div class="check-feature">
+          <div class="cf-icon"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h5>Coaching &amp; Development</h5><p>Funds licensed coaches and structured training curriculum.</p></div>
+        </div>
+        <div class="check-feature">
+          <div class="cf-icon"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h5>Kit &amp; Equipment</h5><p>Boots, balls, and training gear for players who can't afford their own.</p></div>
+        </div>
+        <div class="check-feature">
+          <div class="cf-icon"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h5>Facilities</h5><p>Pitch upkeep and recovery spaces on-site.</p></div>
+        </div>
+        <div class="check-feature">
+          <div class="cf-icon"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h5>Trial &amp; Travel Costs</h5><p>Covers transport and fees for players trialing with partner clubs.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     ACADEMY GOALS
+======================================================================== -->
+<section class="academy-goals" style="background:var(--bg-2);">
+  <div class="container">
+    <div class="section-head center" data-reveal style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">2026 Season</p>
+      <h2>Academy Goals</h2>
+    </div>
+
+    <div class="goals-grid">
+      <div class="goal-card" data-reveal>
+        <div class="goal-pct">62%</div>
+        <div class="goal-bar"><div class="goal-bar-fill" style="width:62%;"></div></div>
+        <h4>Scholarship Fund</h4>
+        <p>Full kit and fee coverage for 40 players who can't afford to enroll.</p>
+      </div>
+      <div class="goal-card" data-reveal data-reveal-delay="1">
+        <div class="goal-pct">38%</div>
+        <div class="goal-bar"><div class="goal-bar-fill" style="width:38%;"></div></div>
+        <h4>New Training Pitch</h4>
+        <p>A second full-size pitch to expand grassroots session capacity.</p>
+      </div>
+     
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     FAQ
+======================================================================== -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head center" data-reveal style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">Questions</p>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-list" data-reveal>
+      
+      <div class="faq-item">
+        <div class="faq-question"><span>Can I cancel a monthly donation?</span><span class="faq-icon"></span></div>
+        <div class="faq-answer"><p>Yes. Contact our team any time and we'll stop future monthly contributions immediately.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>How do I confirm my payment was received?</span><span class="faq-icon"></span></div>
+        <div class="faq-answer"><p>After sending payment via Telebirr or bank transfer, submit the confirmation form with your payment screenshot and our team will verify it.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Can businesses sponsor the academy?</span><span class="faq-icon"></span></div>
+        <div class="faq-answer"><p>Yes, we welcome corporate sponsors. Reach out through the Contact page to discuss partnership options.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     CTA BANNER
+======================================================================== -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box" data-reveal>
+      <h2>Every Contribution Counts</h2>
+      <p>Join the families, alumni and sponsors already supporting the next generation.</p>
+      <div class="btn-actions">
+        <a href="#" class="btn btn-primary on-green" onclick="document.querySelector('.donation-amount').scrollIntoView({behavior:'smooth'});return false;">Donate Now</a>
+        <a href="contact.html" class="btn btn-ghost">Talk To Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================================================================
+     FOOTER
+======================================================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.5 8.5L21 9L16 13.5L17.5 20L12 16.5L6.5 20L8 13.5L3 9L9.5 8.5L12 2Z" fill="#E8FF73"/></svg>
+          </span>
+          SOL <span>ADDIS</span> FC
+        </a>
+        <p>Developing footballers and future leaders in Addis Ababa since 2016.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="TikTok">tt</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Academy</h5>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+    
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="donation.html">Donate</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>Bole Road, Addis Ababa, Ethiopia</li>
+          <li>+251 911 000 000</li>
+          <li>info@soladdisfc.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Sol Addis Football Academy. All rights reserved.</span>
+      <span>Designed for the next generation of Ethiopian football.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="#071A17" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- ========================================================================
+     DONATION CONFIRMATION MODAL
+======================================================================== -->
+<div class="modal-overlay" id="donationConfirmModal">
+  <div class="modal-panel form-modal">
+    <button class="modal-close" data-modal-close aria-label="Close">✕</button>
+    <div class="modal-header">
+      <span class="eyebrow" style="margin-bottom:0;">Confirm Contribution</span>
+      <h3>Donation Confirmation</h3>
+    </div>
+
+    <form id="donationConfirmForm" novalidate>
+      <div class="form-grid">
+        <div class="form-group full">
+          <label for="confirmName">Full Name <span class="req">*</span></label>
+          <input type="text" id="confirmName" name="confirmName" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPhone">Phone <span class="req">*</span></label>
+          <input type="tel" id="confirmPhone" name="confirmPhone" placeholder="+251 9XX XXX XXX" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmEmail">Email</label>
+          <input type="email" id="confirmEmail" name="confirmEmail" placeholder="you@email.com">
+        </div>
+        <div class="form-group">
+          <label for="confirmAmount">Amount (ETB) <span class="req">*</span></label>
+          <input type="number" id="confirmAmount" name="confirmAmount" placeholder="500" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmMethod">Payment Method <span class="req">*</span></label>
+          <select id="confirmMethod" name="confirmMethod" required>
+            <option value="" disabled>Select method</option>
+            <option>Telebirr</option>
+            <option>Commercial Bank of Ethiopia</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Upload Payment Screenshot <span class="req">*</span></label>
+          <div class="file-upload">
+            <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required>
+            <div class="file-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3v13H4z" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" stroke="#fff" stroke-width="1.8" fill="none"/></svg>
+            </div>
+            <div class="file-text">
+              <strong>Payment screenshot</strong>
+              JPG or PNG, max 5MB
+              <span class="file-name"></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="confirmMessage">Optional Message</label>
+          <textarea id="confirmMessage" name="confirmMessage" placeholder="Add a note for the academy (optional)"></textarea>
+        </div>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn btn-primary">Submit Donation</button>
+        <span class="form-note">Verified within 24 hours</span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ========================================================================
+     DONATION SUCCESS MODAL
+======================================================================== -->
+<div class="modal-overlay" id="donationSuccess">
+  <div class="modal-panel success-panel">
+    <button class="modal-close" data-modal-close aria-label="Close">✕</button>
+    <svg class="success-check" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46"></circle>
+      <path d="M30 52l14 14 26-30"></path>
+    </svg>
+    <h3>Thank You!</h3>
+    <p>Thank you for supporting Sol Addis Football Academy.</p>
+    <span class="modal-note">Donation Confirmed</span>
+  </div>
+</div>
+
+<script src="animation re.js"></script>
+<script src="main re.js"></script>
+<script src="pages re.js"></script>
+</body>
+</html>
