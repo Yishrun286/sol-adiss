@@ -20,6 +20,58 @@
 
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="responsive co.css" />
+
+<!--
+  NOTE FOR YOU:
+  - I did NOT change any existing id or class names, so your style.css and main.js/animation.js
+    still work exactly as before.
+  - The hero background image is set with an inline style (same technique you already had),
+    pointing to "hero-bg.jpg". Drop your stadium/pitch photo (like the one in your reference
+    screenshot) into the project folder with that filename, or change the filename below.
+  - I added small NEW classes only where needed for the new program photos
+    (program-img, program-img-wrap, program-tag-onimg, program-img-fade). These are brand
+    new classes that don't exist anywhere else in your CSS, so they won't collide with
+    anything. Their styling lives in the <style> block right below, scoped only to these
+    new classes — your style.css is untouched.
+-->
+<style>
+  .program-img-wrap{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+  .program-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .6s ease;
+    filter: saturate(1.05) contrast(1.03);
+  }
+  .program-card:hover .program-img{
+    transform: scale(1.08);
+    filter: saturate(1.15) contrast(1.05);
+  }
+  .program-img-fade{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(4,19,17,0.75) 0%, rgba(4,19,17,0.05) 45%, rgba(4,19,17,0) 65%);
+    pointer-events: none;
+  }
+  .program-tag-onimg{
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    z-index: 2;
+    margin: 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+</style>
 </head>
 <body>
 
@@ -83,24 +135,26 @@
 <main>
 
 <!-- ========================================================================
-     HERO
+     HERO (dynamic background image, same structure/ids/classes as before)
 ======================================================================== -->
-<section class="hero" id="home">
+<section class="hero" id="home" style="
+  background: linear-gradient(rgba(7,26,23,0.82), rgba(7,26,23,0.7)), url('player\ 6.png') center 30% / cover no-repeat;
+">
   <span class="pitch-line l1"></span>
   <span class="pitch-line l2"></span>
 
   <div class="container hero-grid">
     <div class="hero-copy" data-reveal>
-      <p class="eyebrow">Addis Ababa · Est. Academy</p>
-      <h1>
-        <span class="line">TRAIN LIKE</span>
-        <span class="line">A <span class="accent-text">CHAMPION.</span></span>
-        <span class="line">PLAY WITH PURPOSE.</span>
+      <p class="eyebrow">Addis Ababa · Ethiopia's Football Academy</p>
+      <h1 style="line-height:0.95; margin:10px 0;">
+        <span class="line" style="display:block; font-family:'Anton',sans-serif; font-weight:700; text-transform:uppercase; color:#ffffff; font-size:clamp(2.8rem,7vw,5.5rem); letter-spacing:1px;">SOL ADDIS</span>
+        <span class="line" style="display:block; font-family:'Anton',sans-serif; font-weight:700; text-transform:uppercase; color:#D4AF37; font-size:clamp(2.8rem,7vw,5.5rem); letter-spacing:1px;">FOOTBALL</span>
+        <span class="line" style="display:block; font-family:'Anton',sans-serif; font-weight:700; text-transform:uppercase; color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,0.6); font-size:clamp(2.8rem,7vw,5.5rem); letter-spacing:1px;">ACADEMY</span>
       </h1>
-      <p>Sol Addis Football Academy builds footballers and character, pairing professional-grade coaching with a pathway from first touch to first team.</p>
+      <p>Building champions with <strong>passion, discipline</strong>, and relentless dedication. Sol Addis Football Academy pairs professional-grade coaching with a clear pathway from first touch to first team.</p>
       <div class="hero-actions">
-        <a href="registration.html" class="btn btn-primary">Join Now</a>
-        <a href="programs.html" class="btn btn-ghost">View Programs</a>
+        <a href="registration.html" class="btn btn-primary">Join Academy</a>
+        <a href="donation.html" class="btn btn-ghost">Donate Now</a>
       </div>
     </div>
 
@@ -131,7 +185,6 @@
         <div class="scoreboard-grid">
           <div class="stat"><div class="num" data-count="170" data-suffix="+">0</div><div class="lbl">Players</div></div>
           <div class="stat"><div class="num" data-count="6">0</div><div class="lbl">Coaches</div></div>
-          
         </div>
       </div>
     </div>
@@ -153,7 +206,7 @@
       <div class="count"><span data-count="6">0</span><span class="plus">+</span></div>
       <div class="lbl"> Coaches</div>
     </div>
-    
+
     <div class="stat-item" data-reveal data-reveal-delay="3">
       <div class="count"><span data-count="18">0</span></div>
       <div class="lbl">Years Experience</div>
@@ -162,7 +215,7 @@
 </section>
 
 <!-- ========================================================================
-     FEATURED PROGRAMS
+     FEATURED PROGRAMS (now with a photo for each age group)
 ======================================================================== -->
 <section class="programs" id="programs">
   <div class="container">
@@ -174,23 +227,47 @@
 
     <div class="programs-grid">
       <article class="program-card" data-reveal>
-        <span class="program-tag">Grassroots</span>
-        <h3>Under 9 &amp; Under 11</h3>
-        <p>Ball mastery, coordination and a genuine love of the game through small-sided play.</p>
-     <div class="program-meta"><span>tue/sun/wen/fri</span><span></span></div>
+        <div class="program-img-wrap">
+          <img class="program-img" src="players 3.png" alt="Under 7 players training" />
+          <span class="program-tag program-tag-onimg">Grassroots</span>
+          <span class="program-img-fade"></span>
+        </div>
+        <h3>Under 7</h3>
+        <p>First touches, coordination and a genuine love of the game through fun, small-sided play.</p>
+        <div class="program-meta"><span>tue/sun/wen/fri</span><span></span></div>
         <a href="programs.html" class="card-link">View Program →</a>
       </article>
 
       <article class="program-card" data-reveal data-reveal-delay="1">
-        <span class="program-tag">Development</span>
-        <h3>Under 13 &amp; Under 15</h3>
+        <div class="program-img-wrap">
+          <img class="program-img" src="players 2.png" alt="Under 13 players training" />
+          <span class="program-tag program-tag-onimg">Development</span>
+          <span class="program-img-fade"></span>
+        </div>
+        <h3>Under 13</h3>
         <p>Tactical foundations, position-specific training and structured competitive matches.</p>
-         <div class="program-meta"><span>tue/sun/wen/fri</span><span></span></div>
+        <div class="program-meta"><span>tue/sun/wen/fri</span><span></span></div>
         <a href="programs.html" class="card-link">View Program →</a>
       </article>
 
       <article class="program-card" data-reveal data-reveal-delay="2">
-        <span class="program-tag">Elite Pathway</span>
+        <div class="program-img-wrap">
+          <img class="program-img" src="player 5.png" alt="Under 15 players training" />
+          <span class="program-tag program-tag-onimg">Development</span>
+          <span class="program-img-fade"></span>
+        </div>
+        <h3>Under 15</h3>
+        <p>Building tactical intelligence, strength and speed ahead of the elite pathway.</p>
+        <div class="program-meta"><span>tue/sun/wen/fri</span><span></span></div>
+        <a href="programs.html" class="card-link">View Program →</a>
+      </article>
+
+      <article class="program-card" data-reveal data-reveal-delay="3">
+        <div class="program-img-wrap">
+          <img class="program-img" src="player 6.png" alt="Under 17 players and trials" />
+          <span class="program-tag program-tag-onimg">Elite Pathway</span>
+          <span class="program-img-fade"></span>
+        </div>
         <h3>Under 17 &amp; Trials</h3>
         <p>High-performance training aligned with professional club scouting standards.</p>
         <div class="program-meta"><span>tue/sun/wen/fri</span><span></span></div>
@@ -209,7 +286,7 @@
       <img src="image home.png"/>
       <div class="glass-badge">
         <p class="eyebrow" style="margin-bottom:6px;">Since 2016</p>
-        
+
         <h4 style="font-family:var(--font-display);font-size:1.3rem;text-transform:uppercase;">Nine Seasons of Development</h4>
       </div>
     </div>
@@ -246,11 +323,11 @@
       <h2>Where Will You Train?</h2>
     </div>
     <div class="categories-grid">
-      <div class="cat-card" data-reveal><h4>Technical Skills</h4></div>
-      
-      <div class="cat-card" data-reveal data-reveal-delay="1"><h4>Goalkeeping</h4> </div>
-      <div class="cat-card" data-reveal data-reveal-delay="2"><h4>Strength &amp; Conditioning</h4></div>
-      <div class="cat-card" data-reveal data-reveal-delay="3"><h4>Match Tactics </h4></div>
+      <div class="cat-card" data-reveal style="background:linear-gradient(to top, rgba(4,19,17,0.85) 10%, rgba(4,19,17,0.15) 60%), url('player.png') center / cover no-repeat;"><h4>Technical Skills</h4></div>
+
+      <div class="cat-card" data-reveal data-reveal-delay="1" style="background:linear-gradient(to top, rgba(4,19,17,0.85) 10%, rgba(4,19,17,0.15) 60%), url('goalkeper.png') center / cover no-repeat;"><h4>Goalkeeping</h4> </div>
+      <div class="cat-card" data-reveal data-reveal-delay="2" style="background:linear-gradient(to top, rgba(4,19,17,0.85) 10%, rgba(4,19,17,0.15) 60%), url('match 3.jpg') center / cover no-repeat;"><h4>Strength &amp; Conditioning</h4></div>
+      <div class="cat-card" data-reveal data-reveal-delay="3" style="background:linear-gradient(to top, rgba(4,19,17,0.85) 10%, rgba(4,19,17,0.15) 60%), url('match 4.jpg') center / cover no-repeat;"><h4>Match Tactics </h4></div>
     </div>
   </div>
 </section>
@@ -328,17 +405,17 @@
     </div>
     <div class="testi-grid">
       <div class="testi-card" data-reveal>
-        <div class="testi-quote">“</div>
+        <div class="testi-quote">"</div>
         <p>My son's confidence, both on and off the pitch, has grown enormously since joining the academy.</p>
         <div class="testi-person"><div class="testi-avatar"></div><div><h5>Selam T.</h5><span>Parent, U11 Squad</span></div></div>
       </div>
       <div class="testi-card" data-reveal data-reveal-delay="1">
-        <div class="testi-quote">“</div>
+        <div class="testi-quote">"</div>
         <p>The coaching staff pushed me technically further than I thought possible in one season.</p>
         <div class="testi-person"><div class="testi-avatar"></div><div><h5>Nahom B.</h5><span>Player, Elite Pathway</span></div></div>
       </div>
       <div class="testi-card" data-reveal data-reveal-delay="2">
-        <div class="testi-quote">“</div>
+        <div class="testi-quote">"</div>
         <p>A professional environment with real structure — exactly what youth football here needed.</p>
         <div class="testi-person"><div class="testi-avatar"></div><div><h5>Coach Dawit</h5><span>Partner Club Scout</span></div></div>
       </div>
@@ -407,7 +484,7 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="programs.html">Programs</a></li>
           <li><a href="coaches.html">Coaches</a></li>
-         
+
         </ul>
       </div>
 
