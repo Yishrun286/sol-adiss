@@ -366,7 +366,7 @@
 .product-card:hover{transform:translateY(-8px);border-color:rgba(232,255,115,.4);}
 .product-media{
   position:relative;
-  aspect-ratio:4/5;
+  aspect-ratio:5/5;
   background:linear-gradient(150deg,rgba(0,193,110,.2),rgba(4,19,17,.5));
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
