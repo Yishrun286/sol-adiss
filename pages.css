@@ -366,11 +366,20 @@
 .product-card:hover{transform:translateY(-8px);border-color:rgba(232,255,115,.4);}
 .product-media{
   position:relative;
-  aspect-ratio:5/5;
+  aspect-ratio:1/1;
   background:linear-gradient(150deg,rgba(0,193,110,.2),rgba(4,19,17,.5));
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
+
+.product-media2{
+  position:relative;
+  aspect-ratio:3/1;
+  background:linear-gradient(150deg,rgba(0,193,110,.2),rgba(4,19,17,.5));
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+
 .product-media svg{width:58%;transition:transform .6s var(--ease);}
 .product-card:hover .product-media svg{transform:scale(1.06) translateY(-4px);}
 .product-badge{
