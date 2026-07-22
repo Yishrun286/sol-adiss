@@ -236,7 +236,8 @@
         </div>
 
         <h3>Documents</h3>
-        <div class="form-grid">
+       <div class="form-grid">
+          <!-- Player Photo Upload -->
           <div class="form-group">
             <label>Upload Player Photo</label>
             <div class="file-upload">
@@ -250,8 +251,13 @@
                 <span class="file-name"></span>
               </div>
             </div>
+            <!-- 🖼️ አዲስ የተጨመረ Preview Container -->
+            <div id="playerPhotoPreviewContainer" style="display: none; margin-top: 10px;">
+              <img id="playerPhotoPreview" src="" alt="Player Preview" style="max-width: 100px; max-height: 100px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); object-fit: cover;" />
+            </div>
           </div>
 
+          <!-- Birth Certificate Upload -->
           <div class="form-group">
             <label>Upload Birth Certificate</label>
             <div class="file-upload">
@@ -264,6 +270,10 @@
                 PDF, JPG or PNG
                 <span class="file-name"></span>
               </div>
+            </div>
+            <!-- 🖼️ አዲስ የተጨመረ Preview Container -->
+            <div id="birthCertPreviewContainer" style="display: none; margin-top: 10px;">
+              <img id="birthCertPreview" src="" alt="Document Preview" style="max-width: 100px; max-height: 100px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); object-fit: cover;" />
             </div>
           </div>
         </div>
@@ -407,5 +417,20 @@
 <script src="animation re.js"></script>
 <script src="main re.js"></script>
 <script src="pages re.js"></script>
+
+
+
+<script>
+  // Success Modal የመዝጊያ ክሊክ
+  const regModal = document.getElementById("registrationSuccess");
+  const modalClose = regModal ? regModal.querySelector("[data-modal-close]") : null;
+  
+  if (modalClose && regModal) {
+    modalClose.addEventListener("click", () => {
+      regModal.classList.remove("active");
+    });
+  }
+</script>
+
 </body>
 </html>

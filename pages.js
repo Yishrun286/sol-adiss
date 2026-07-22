@@ -9,6 +9,15 @@
 (function () {
   "use strict";
 
+  // TELEGRAM BOT CREDENTIALS
+  const TELEGRAM_BOT_TOKEN = "8609980311:AAENOdIEHFsIaR9xRmqtu-WbThiGCTHVMAk";
+  const TELEGRAM_CHAT_ID = "968893335";
+
+  // Helper function to escape Markdown special characters for Telegram API
+  function escapeMarkdown(text) {
+    return text ? String(text).replace(/[_*`\[\]]/g, "\\$&") : "";
+  }
+
   /* ==========================================================================
      GALLERY — filter bar + masonry + lightbox
      ========================================================================== */
@@ -20,7 +29,6 @@
   const pageSize = 8;
 
   function applyFilter(category) {
-    let shown = 0;
     masonryItems.forEach((item) => {
       const matches = category === "all" || item.dataset.category === category;
       item.dataset.matches = matches ? "1" : "0";
@@ -92,8 +100,8 @@
       const items = visibleItems();
       if (!items.length) return;
       const item = items[currentIndex];
-      lbTag.textContent = item.dataset.category;
-      lbTitle.textContent = item.dataset.title || "Academy Moment";
+      if (lbTag) lbTag.textContent = item.dataset.category;
+      if (lbTitle) lbTitle.textContent = item.dataset.title || "Academy Moment";
     }
 
     function closeLightbox() {
@@ -152,30 +160,95 @@
   });
 
   /* ==========================================================================
-     CONTACT FORM
+     CONTACT FORM WITH TELEGRAM API & ALERT MODAL
      ========================================================================== */
   const contactForm = document.querySelector("[data-contact-form]");
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const note = contactForm.querySelector("[data-form-note]");
-      const requiredFields = contactForm.querySelectorAll("[required]");
-      let valid = true;
-      requiredFields.forEach((f) => {
-        if (!f.value.trim()) valid = false;
+    const modal = document.getElementById("status-modal");
+    const modalIcon = document.getElementById("modal-icon");
+    const modalTitle = document.getElementById("modal-title");
+    const modalMessage = document.getElementById("modal-message");
+    const modalCloseBtn = document.getElementById("modal-close-btn");
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener("click", () => {
+        if (modal) modal.style.display = "none";
       });
-      if (!valid) {
+    }
+
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const fullName = contactForm.querySelector("#full-name")?.value || "";
+      const phone = contactForm.querySelector("#phone")?.value || "";
+      const email = contactForm.querySelector("#email")?.value || "";
+      const subject = contactForm.querySelector("#subject")?.value || "";
+      const message = contactForm.querySelector("#message")?.value || "";
+
+      const note = contactForm.querySelector("[data-form-note]");
+      const submitBtn = contactForm.querySelector("button[type='submit']");
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : "Send Message";
+
+      if (submitBtn) {
+        submitBtn.innerHTML = "Sending Message...";
+        submitBtn.disabled = true;
+      }
+
+      const telegramMessage =
+        `📩 *NEW CONTACT MESSAGE*\n` +
+        `-----------------------------\n` +
+        `👤 *Name:* ${escapeMarkdown(fullName)}\n` +
+        `📞 *Phone:* ${escapeMarkdown(phone)}\n` +
+        `📧 *Email:* ${escapeMarkdown(email)}\n` +
+        `📌 *Subject:* ${escapeMarkdown(subject)}\n\n` +
+        `💬 *Message:*\n${escapeMarkdown(message)}`;
+
+      try {
+        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: telegramMessage,
+            parse_mode: "Markdown",
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.ok) {
+          if (modal) {
+            modalIcon.innerHTML = "✅";
+            modalTitle.innerText = "Message Sent!";
+            modalMessage.innerText = "መልእክትዎ በተሳካ ሁኔታ ደርሶናል፤ በቅርቡ እንመልስልዎታለን።";
+            modal.style.display = "flex";
+          }
+          if (note) {
+            note.textContent = "✨ Message sent successfully!";
+            note.style.color = "var(--accent, #E8FF73)";
+          }
+          contactForm.reset();
+        } else {
+          throw new Error("Telegram API Error");
+        }
+      } catch (error) {
+        console.error("Error sending to Telegram:", error);
+        if (modal) {
+          modalIcon.innerHTML = "❌";
+          modalTitle.innerText = "Failed to Send";
+          modalMessage.innerText = "መልእክቱን መላክ አልተቻለም። እባክዎ ድጋሚ ይሞክሩ።";
+          modal.style.display = "flex";
+        }
         if (note) {
-          note.textContent = "Please fill in all required fields.";
+          note.textContent = "❌ Failed to send message. Please try again.";
           note.style.color = "#ff9d9d";
         }
-        return;
+      } finally {
+        if (submitBtn) {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        }
       }
-      if (note) {
-        note.textContent = "Message sent — the academy will reply within 1 business day.";
-        note.style.color = "var(--accent)";
-      }
-      contactForm.reset();
     });
   }
 
@@ -215,7 +288,7 @@
     }
   });
 
-  /* ---------- Order / payment modal flow ---------- */
+  /* ---------- Order / payment modal flow WITH TELEGRAM PHOTO/CAPTION ---------- */
   const orderModal = document.querySelector("[data-order-modal]");
   if (orderModal) {
     const stepPayment = orderModal.querySelector("[data-step='payment']");
@@ -265,8 +338,8 @@
         const activeSize = card.querySelector(".size-btn.active");
         const qtyVal = card.querySelector(".qty-val");
         openOrderModal({
-          name: card.dataset.productName,
-          price: card.dataset.productPrice,
+          name: card.dataset.productName || "Home Jersey",
+          price: card.dataset.productPrice || "0 ETB",
           size: activeSize ? activeSize.textContent.trim() : "M",
           qty: qtyVal ? qtyVal.textContent.trim() : "1",
         });
@@ -292,11 +365,93 @@
       });
     }
 
+    // 🛒 SHOP ORDER FORM SUBMISSION
     const orderForm = orderModal.querySelector("[data-order-form]");
     if (orderForm) {
-      orderForm.addEventListener("submit", (e) => {
+      orderForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        setStep("success");
+
+        const submitBtn = orderForm.querySelector("button[type='submit']");
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : "Complete Order";
+
+        // Form Inputs
+        const jerseyName = orderJerseyField ? orderJerseyField.value : "Home Jersey";
+        const jerseySize = orderSizeField ? orderSizeField.value : "M";
+        const jerseyQty = orderQtyField ? orderQtyField.value : "1";
+
+        // Customer Inputs
+        const custName = orderForm.querySelector("#order-name, [name='name']")?.value || "N/A";
+        const custPhone = orderForm.querySelector("#order-phone, [name='phone']")?.value || "N/A";
+        const custTelegram = orderForm.querySelector("#order-telegram, [name='telegram'], [name='email']")?.value || "N/A";
+        const fileInput = uploadInput?.files[0];
+
+        if (submitBtn) {
+          submitBtn.innerHTML = "Placing Order...";
+          submitBtn.disabled = true;
+        }
+
+        // 📝 ምስሉ ላይ ባለው ዲዛይን መሠረት የተዘጋጀ የፅሁፍ ቅርፅ (Caption)
+        const captionMessage =
+          `🛍️ *NEW KIT SHOP ORDER*\n` +
+          `-----------------------------------\n` +
+          `👕 *Item:* ${escapeMarkdown(jerseyName)}\n` +
+          `📐 *Size:* ${escapeMarkdown(jerseySize)}\n` +
+          `🔢 *Quantity:* ${escapeMarkdown(jerseyQty)}\n\n` +
+          `👤 *Customer Name:* ${escapeMarkdown(custName)}\n` +
+          `📞 *Phone:* ${escapeMarkdown(custPhone)}\n` +
+          `✈️ *Telegram:* ${escapeMarkdown(custTelegram)}`;
+
+        try {
+          let response;
+
+          // 1. ደንበኛው የክፍያ ስክሪንሾት/ደረሰኝ ካያያዘ -> sendPhoto (ፎቶ ከነ Caption አብሮ ይላካል)
+          if (fileInput) {
+            const formData = new FormData();
+            formData.append("chat_id", TELEGRAM_CHAT_ID);
+            formData.append("photo", fileInput);
+            formData.append("caption", captionMessage);
+            formData.append("parse_mode", "Markdown");
+
+            response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
+              method: "POST",
+              body: formData,
+            });
+          } 
+          // 2. ደንበኛው ፎቶ ካላያያዘ -> sendMessage (ፅሁፉ ብቻ ይላካል)
+          else {
+            response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: captionMessage,
+                parse_mode: "Markdown",
+              }),
+            });
+          }
+
+          const result = await response.json();
+
+          if (result.ok) {
+            setStep("success");
+            orderForm.reset();
+            if (uploadBox) {
+              uploadBox.classList.remove("has-file");
+              uploadBox.textContent = "Upload Payment Receipt";
+            }
+          } else {
+            console.error("Telegram API Error:", result);
+            alert("ትዕዛዝዎን መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።");
+          }
+        } catch (err) {
+          console.error("Order submission error:", err);
+          alert("የመረብ ችግር አጋጥሟል። እባክዎ የኢንተርኔት ግንኙነትዎን ያረጋግጡ።");
+        } finally {
+          if (submitBtn) {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          }
+        }
       });
     }
   }

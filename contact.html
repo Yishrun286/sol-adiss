@@ -200,6 +200,16 @@
   </div>
 </section>
 
+<!-- Success / Error Alert Modal -->
+<div id="status-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#111; border:1px solid var(--accent, #E8FF73); padding:30px; border-radius:12px; text-align:center; max-width:380px; width:90%; color:#fff; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+    <div id="modal-icon" style="font-size:40px; margin-bottom:10px;"></div>
+    <h3 id="modal-title" style="margin-bottom:10px; font-size:20px; color:#fff;"></h3>
+    <p id="modal-message" style="font-size:14px; color:#ccc; margin-bottom:20px;"></p>
+    <button id="modal-close-btn" style="padding:10px 24px; background:var(--accent, #E8FF73); color:#000; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">እሺ (OK)</button>
+  </div>
+</div>
+
 <!-- ========================================================================
      FAQ
 ======================================================================== -->
@@ -320,8 +330,19 @@
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="#071A17" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
+
+
+
+
+
+
 <script src="animation.js"></script>
 <script src="main.js"></script>
 <script src="pages.js"></script>
+
+
+
+
+
 </body>
 </html>

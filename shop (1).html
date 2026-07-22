@@ -118,12 +118,9 @@
           <span class="product-badge">Official</span>
           
           <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            
             <path d="M30 10 L10 30 L22 46 L30 40 V128 H90 V40 L98 46 L110 30 L90 10 L74 18 C70 22 50 22 46 18 L30 10Z" fill="#00C16E" stroke="#071A17" stroke-width="2"/>
             <path d="M46 18 C50 22 70 22 74 18" stroke="#E8FF73" stroke-width="2" fill="none"/>
-            
             <circle cx="60" cy="55" r="10" fill="#041311" opacity=".85"/>
-            
           </svg>
           
         </div>
@@ -143,8 +140,6 @@
             </div>
           </div>
 
-         
-
           <div class="qty-row">
             <div class="selector-label" style="margin:0;">Qty</div>
             <div class="qty-stepper">
@@ -161,18 +156,15 @@
         </div>
       </article>
 
-     <article class="product-card" data-reveal data-product-name="Away Jersey" data-product-price="ETB 2000" data-product-desc="The primary matchday shirt in academy green, with accent trim and printed crest.">
+      <article class="product-card" data-reveal data-product-name="Away Jersey" data-product-price="ETB 2000" data-product-desc="The primary matchday shirt in academy green, with accent trim and printed crest.">
         <div class="product-media2">
           <img src="malya2.jpg"/>
           <span class="product-badge">Official</span>
           
           <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            
             <path d="M30 10 L10 30 L22 46 L30 40 V128 H90 V40 L98 46 L110 30 L90 10 L74 18 C70 22 50 22 46 18 L30 10Z" fill="#00C16E" stroke="#071A17" stroke-width="2"/>
             <path d="M46 18 C50 22 70 22 74 18" stroke="#E8FF73" stroke-width="2" fill="none"/>
-            
             <circle cx="60" cy="55" r="10" fill="#041311" opacity=".85"/>
-            
           </svg>
           
         </div>
@@ -192,8 +184,6 @@
             </div>
           </div>
 
-         
-
           <div class="qty-row">
             <div class="selector-label" style="margin:0;">Qty</div>
             <div class="qty-stepper">
@@ -210,9 +200,6 @@
         </div>
       </article>
 
-      
-
-      
     </div>
   </div>
 </section>
@@ -343,7 +330,7 @@
 
       <div class="modal-summary">
         <span data-summary-name>Home Jersey</span>
-        <span class="ms-total" data-summary-price>ETB 1,500</span>
+        <span class="ms-total" data-summary-price>ETB 2,000</span>
       </div>
 
       <div class="payment-method">
@@ -374,12 +361,12 @@
 
       <form data-order-form>
         <div class="form-group">
-          <label for="order-name">Customer Name</label>
+          <label for="order-name">Customer Name <span style="color:red;">*</span></label>
           <input type="text" id="order-name" placeholder="Your full name" required />
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="order-phone">Phone Number</label>
+            <label for="order-phone">Phone Number <span style="color:red;">*</span></label>
             <input type="tel" id="order-phone" placeholder="09XXXXXXXX" required />
           </div>
           <div class="form-group">
@@ -401,12 +388,23 @@
           <label for="order-qty">Quantity</label>
           <input type="text" id="order-qty" data-order-qty readonly />
         </div>
+        
+        <!-- Upload Payment Screenshot -->
         <div class="form-group">
-          <label>Upload Payment Screenshot</label>
-          <div class="upload-box">Click to upload screenshot (JPG or PNG)</div>
-          <input type="file" accept="image/*" data-upload-input style="display:none;" />
+          <label>Upload Payment Screenshot <span style="color:red;">*</span></label>
+          <div class="upload-box" id="uploadBoxTrigger" style="cursor:pointer; border: 2px dashed rgba(255,255,255,0.2); padding: 15px; text-align: center; border-radius: 8px;">
+            Click to upload screenshot (JPG or PNG)
+          </div>
+          <input type="file" id="receiptInput" accept="image/*" data-upload-input style="display:none;" required />
+          
+          <!-- Image Preview Display -->
+          <div id="receiptPreviewContainer" style="display: none; margin-top: 10px; text-align: center;">
+            <img id="receiptPreview" src="" alt="Payment Receipt" style="max-width: 120px; max-height: 120px; border-radius: 8px; border: 1px solid #00C16E; object-fit: cover;" />
+            <p id="receiptFileName" style="font-size: 0.85rem; color: #00C16E; margin-top: 5px;"></p>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Submit Order</button>
+
+        <button type="submit" id="submitOrderBtn" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:15px;">Submit Order</button>
       </form>
     </div>
 
@@ -452,7 +450,6 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="programs.html">Programs</a></li>
           <li><a href="coaches.html">Coaches</a></li>
-         
         </ul>
       </div>
 
@@ -460,7 +457,6 @@
         <h5>Academy</h5>
         <ul>
           <li><a href="gallery.html">Gallery</a></li>
-         
           <li><a href="registration.html">Registration</a></li>
           <li><a href="shop.html">Kit Shop</a></li>
         </ul>
