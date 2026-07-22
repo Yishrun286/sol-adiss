@@ -11,8 +11,7 @@
 
   // TELEGRAM BOT CREDENTIALS
   const TELEGRAM_BOT_TOKEN = "8609980311:AAENOdIEHFsIaR9xRmqtu-WbThiGCTHVMAk";
-  const TELEGRAM_CHAT_ID = "968893335";
-
+ const TELEGRAM_CHAT_ID = "-1003732216657";
   // Helper function to escape Markdown special characters for Telegram API
   function escapeMarkdown(text) {
     return text ? String(text).replace(/[_*`\[\]]/g, "\\$&") : "";
